@@ -1,0 +1,12 @@
+<% @questions.each do |question| %>
+  <p><%= link_to question.title, question%></p>
+<% end %>
+
+
+<% if current_user %>
+  <%= link_to 'New question', new_question_path %>
+  <%= button_to 'LogOut', destroy_user_session_path %>
+<% else %>
+  <%= link_to 'LogIn', new_user_session_path %>
+  <%= link_to 'SignUp', new_user_registration_path %>
+<% end %>

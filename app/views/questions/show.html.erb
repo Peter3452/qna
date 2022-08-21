@@ -4,3 +4,15 @@
 <%= link_to 'Edit', edit_question_path %>
 <%= link_to 'Back', questions_path %>
 <%= button_to "Delete", question_path, method: :delete %>
+
+<h2>Create answer: </h2>
+<%= form_with model: [ @question, @question.answers.build ] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>
+
+<h2>Answers: <h2>
+<% @question.answers.each do |answer| %>
+  <h3><%= answer.body %><h3>
+<% end %>

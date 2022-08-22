@@ -1,18 +1,18 @@
-<h2><div><%= @question.title %></div></h2>
-<h3><div><%= @question.body %></div></h3>
+<div>
+  <h2><%= @question.title %></h2>
+  <em><h3><%= @question.body %></h3></em>
+</div>
 
 <%= link_to 'Edit', edit_question_path %>
 <%= link_to 'Back', questions_path %>
 <%= button_to "Delete", question_path, method: :delete %>
 
-<h2>Create answer: </h2>
-<%= form_with model: [ @question, @question.answers.build ] do |f| %>
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-  <%= f.submit %>
+<h2>Answers: </h2>
+<% @question.answers.each do |answer| %>
+  <em><h3><%= answer.body %><h3></em>
+  <%= link_to 'Edit answer', edit_question_answer_path(@question, answer) %>
+  <%= button_to 'Delete answer', question_answer_path(@question, answer), method: :delete %>
 <% end %>
 
-<h2>Answers: <h2>
-<% @question.answers.each do |answer| %>
-  <h3><%= answer.body %><h3>
-<% end %>
+<h2>Create answer: </h2>
+<%= render 'answers/form_new' %>

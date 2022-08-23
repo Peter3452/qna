@@ -10,8 +10,9 @@
 <h2>Answers: </h2>
 <% @question.answers.each do |answer| %>
   <em><h3><%= answer.body %><h3></em>
-  <%= link_to 'Edit answer', edit_question_answer_path(@question, answer) %>
-  <%= button_to 'Delete answer', question_answer_path(@question, answer), method: :delete %>
+  <%= image_tag answer.avatar %>
+  <p><%= link_to 'Edit answer', edit_question_answer_path(@question, answer) %></p>
+  <p><%= button_to 'Delete answer', question_answer_path(@question, answer), method: :delete %></p>
 <% end %>
 
 <h2>Create answer: </h2>

@@ -1,5 +1,11 @@
 <%= form_with model: [ @question, @question.answers.build ] do |f| %>
+<p>
   <%= f.label :body %>
   <%= f.text_area :body %>
+</p>
+<p>
+  <%= f.label :avatar %>
+  <%= f.file_field :avatar %>
+</p>
   <%= f.submit %>
 <% end %>

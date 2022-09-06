@@ -3,9 +3,11 @@
   <em><h3><%= @question.body %></h3></em>
 </div>
 
+
 <%= link_to 'Edit', edit_question_path %>
 <%= link_to 'Back', questions_path %>
 <%= button_to "Delete", question_path, method: :delete %>
+
 
 <h2>Answers: </h2>
 <% @question.answers.each do |answer| %>
@@ -15,5 +17,6 @@
   <p><%= button_to 'Delete answer', question_answer_path(@question, answer), method: :delete %></p>
 <% end %>
 
+
 <h2>Create answer: </h2>
-<%= render 'answers/form_new' %>
+<%= render 'answers/form' %>

@@ -3,12 +3,14 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  
   <div>
     <%= f.label :body %>
     <%= f.text_area :body %>
   </div>
-
+  <div>
+    <%= f.label :att %>
+    <%= f.file_field :att %>
+  </div>
   <div>
     <%= f.submit %>
   </div>

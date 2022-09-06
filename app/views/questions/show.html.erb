@@ -1,7 +1,7 @@
 <div>
   <h2><%= @question.title %></h2>
   <em><h3><%= @question.body %></h3></em>
-  <h3><%= image_tag @question.attachment %></h3>
+  <h3><%= image_tag @question.attachment.variant(resize_to_limit: [300, 300]) %></h3>
 </div>
 
 
@@ -13,7 +13,7 @@
 <h2>Answers: </h2>
 <% @question.answers.each do |answer| %>
   <em><h3><%= answer.body %><h3></em>
-  <%= image_tag answer.avatar %>
+  <%= image_tag answer.avatar.variant(resize_to_limit: [300, 300]) %>
   <p><%= link_to 'Edit answer', edit_question_answer_path(@question, answer) %></p>
   <p><%= button_to 'Delete answer', question_answer_path(@question, answer), method: :delete %></p>
 <% end %>

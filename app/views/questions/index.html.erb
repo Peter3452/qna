@@ -1,5 +1,5 @@
 <% @questions.each do |question| %>
-  <p><%= question.title %></p>
+  <h2><p><%= question.title %></p></h2>
   <p><%= link_to image_tag(question.attachment), question %></p>
 <% end %>
 
